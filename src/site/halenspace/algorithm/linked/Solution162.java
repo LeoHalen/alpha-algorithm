@@ -19,6 +19,6 @@ public class Solution162 {
             return search(nums, left, mid);
         }
 
-        return search(nums, mid, right);
+        return search(nums, mid + 1, right);
     }
 }
