@@ -10,6 +10,14 @@ public class Solution162 {
         return search(nums, 0, nums.length - 1);
     }
 
+    /**
+     * 解法一：递归二分查找
+     * 最坏时间复杂度：O(logN)
+     * @param nums
+     * @param left
+     * @param right
+     * @return
+     */
     public int search(int[] nums, int left, int right) {
         if (left == right) {
             return left;
@@ -20,5 +28,21 @@ public class Solution162 {
         }
 
         return search(nums, mid + 1, right);
+    }
+
+    /**
+     * 解法二：数组一次遍历
+     * 最坏时间复杂度：O(N)
+     * @param nums
+     * @return
+     */
+    public int search(int[] nums) {
+        for (int i = 0, len = nums.length; i < len; i++) {
+            if (nums[i] > nums[i + 1]) {
+                return i;
+            }
+        }
+
+        return nums.length - 1;
     }
 }
